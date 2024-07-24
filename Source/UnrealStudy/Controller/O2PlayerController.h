@@ -6,9 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "O2PlayerController.generated.h"
 
-/**
- * 
- */
+
 UCLASS()
 class UNREALSTUDY_API AO2PlayerController : public APlayerController
 {

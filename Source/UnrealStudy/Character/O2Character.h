@@ -3,24 +3,22 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Character.h"
 
 #include "InputActionValue.h"
-#include "Camera/CameraComponent.h"
-#include "GameFrameWork/SpringArmComponent.h"
-
-
-#include "O2CharacterBase.generated.h"
+#include "GameFramework/Character.h"
+#include "O2Character.generated.h"
 
 UCLASS()
-class UNREALSTUDY_API AO2CharacterBase : public ACharacter
+class UNREALSTUDY_API AO2Character : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
-	AO2CharacterBase();
+	// Sets default values for this character's properties
+	AO2Character();
 
 protected:
+	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -40,14 +38,6 @@ protected:
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
 
-
 public:	
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
-	TObjectPtr<class USpringArmComponent> CameraBoom;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
-	TObjectPtr<class UCameraComponent> FollowCamera;
 };
